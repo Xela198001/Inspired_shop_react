@@ -5,10 +5,10 @@ export const Social = () => {
   return (
     <div className={cn(s.social)}>
       <h2 className={cn(s.title, s.socialTitle)}>Связаться с нами</h2>
-      <p className={s.socialSubTitle}>Контакты и адреса магазинов</p>
-      <ul className={s.socialList}>
+      <p className={s.socialSubtitle}>Контакты и адреса магазинов</p>
+      <ul className={cn(s.socialTitle, s.socialList)}>
         <li>
-          <a href="#" className={cn(s.link, s.sociallinkVK)}>
+          <a href="#" className={cn(s.link, s.socialLinkVK)}>
             <svg
               width="24"
               height="24"
@@ -21,7 +21,7 @@ export const Social = () => {
           </a>
         </li>
         <li>
-          <a href="#" className={cn(s.link, s.sociallinkFB)}>
+          <a href="#" className={cn(s.link, s.socialLinkFB)}>
             <svg
               width="24"
               height="24"

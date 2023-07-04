@@ -1,11 +1,16 @@
+import { Container } from '../Layout/Container/Container.jsx';
 import { Bottom } from './Bottom/Bottom.jsx';
 import { Top } from './Top/Top.jsx';
+import s from './Footer.module.scss';
+import cn from 'classnames';
 
-export const Footer = (props) => {
+export const Footer = () => {
   return (
     <footer>
-      <Top />
-      <Bottom />
+      <Container className={cn(s.container)}>
+        <Top />
+        <Bottom />
+      </Container>
     </footer>
   );
 };

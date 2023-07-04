@@ -29,8 +29,8 @@ const nav = [
 export const List = (props) => {
   return nav.map((val, index) => (
     <li key={index}>
-      <div className={cn(s.title, s.categoryTitle)}>{val.title}</div>
-      <ul className={cn(s.categorySubList)}>
+      <div className={cn(s.categoryTitle, s.categorySubtitle)}>{val.title}</div>
+      <ul className={cn(s.categorySublist, s.categorySublist)}>
         {val.canegories.map((item, idx1) => (
           <Item key={idx1} link={item.link} title={item.title} />
         ))}
