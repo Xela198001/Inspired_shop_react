@@ -6,17 +6,17 @@ import logo from '/src/assets/img/icons/logo.svg';
 export const Top = () => {
   return (
     <div className={s.top}>
-      <Container className={s.topContainer}>
-        <a href="tel:89304902620" className={classNames(s.topLink, s.topPhone)}>
+      <Container className={s.container}>
+        <a href="tel:89304902620" className={classNames(s.link, s.phone)}>
           8 930 490 26 20
         </a>
-        <a href="" className={s.topLogo}>
+        <a href="" className={s.logo}>
           <img src={logo} alt="logo: Inspired" />
         </a>
-        <div className={s.topNavigation}>
-          <ul className={s.topNavList}>
-            <li className={s.topNavIitem}>
-              <button className={s.topLink}>
+        <div className={s.navigation}>
+          <ul className={s.navList}>
+            <li className={s.navIitem}>
+              <button className={s.link}>
                 <svg
                   width="24"
                   height="24"
@@ -41,8 +41,8 @@ export const Top = () => {
                 </svg>
               </button>
             </li>
-            <li className={s.topNavIitem}>
-              <a href="" className={s.topLink}>
+            <li className={s.navIitem}>
+              <a href="" className={s.link}>
                 <svg
                   width="24"
                   height="24"
@@ -67,8 +67,8 @@ export const Top = () => {
                 </svg>
               </a>
             </li>
-            <li className={s.topNavIitem}>
-              <a href="" className={s.topLink}>
+            <li className={s.navIitem}>
+              <a href="" className={s.link}>
                 <svg
                   width="24"
                   height="24"

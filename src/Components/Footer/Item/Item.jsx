@@ -1,13 +1,14 @@
+import { NavLink } from 'react-router-dom';
 import s from '../Footer.module.scss';
 import cn from 'classnames';
 
-export const Item = ({ link, title }) => {
+export const Item = ({ categoryLink, link, title }) => {
   return (
     <li className={cn(s.categoryItem)}>
       <h3 className={cn(s.categorySubtitle)}>
-        <a href={link} className={cn(s.link)}>
+        <NavLink to={`${categoryLink}/${link}`} className={cn(s.link)}>
           {title}
-        </a>
+        </NavLink>
       </h3>
     </li>
   );
