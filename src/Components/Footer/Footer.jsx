@@ -4,11 +4,11 @@ import { Top } from './Top/Top.jsx';
 import s from './Footer.module.scss';
 import cn from 'classnames';
 
-export const Footer = () => {
+export const Footer = ({ list }) => {
   return (
     <footer>
       <Container className={cn(s.container)}>
-        <Top />
+        <Top list={list} />
         <Bottom />
       </Container>
     </footer>
