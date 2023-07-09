@@ -7,7 +7,7 @@ const list = [
   {
     link: 'women',
     title: 'Женщины',
-    canegories: [
+    categories: [
       { link: 'bras', title: 'Бюстгальтеры' },
       { link: 'underpants', title: 'Трусы' },
       { link: 'socks', title: 'Носки' },
@@ -19,7 +19,7 @@ const list = [
   {
     link: 'men',
     title: 'Мужчины',
-    canegories: [
+    categories: [
       { link: 'underpants', title: 'Трусы' },
       { link: 'socks', title: 'Носки' },
       { link: 'bathrobes', title: 'Халаты' },

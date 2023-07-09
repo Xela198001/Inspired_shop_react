@@ -5,14 +5,14 @@ import { NavLink } from 'react-router-dom';
 
 export const List = ({ list }) => {
   return list.map((val, index) => (
-    <li key={index}>
-      <div className={cn(s.categoryTitle, s.categorySubtitle)}>
+    <li key={index} className={s.categoryItem}>
+      <h3 className={cn(s.categorySubtitle)}>
         <NavLink className={s.link} to={val.link}>
           {val.title}
         </NavLink>
-      </div>
-      <ul className={cn(s.categorySublist, s.categorySublist)}>
-        {val.canegories.map((item, idx1) => (
+      </h3>
+      <ul className={cn(s.categorySublist)}>
+        {val.categories.map((item, idx1) => (
           <Item
             key={idx1}
             categoryLink={val.link}
