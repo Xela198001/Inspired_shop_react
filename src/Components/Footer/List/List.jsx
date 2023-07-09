@@ -3,34 +3,8 @@ import s from '../Footer.module.scss';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 
-const nav = [
-  {
-    link: 'women',
-    title: 'Женщины',
-    canegories: [
-      { link: 'bras', title: 'Бюстгальтеры' },
-      { link: 'underpants', title: 'Трусы' },
-      { link: 'socks', title: 'Носки' },
-      { link: 'bathrobes', title: 'Халаты' },
-      { link: 'thermal', title: 'Термобелье' },
-      { link: 'pijamas', title: 'Пижамы' },
-    ],
-  },
-  {
-    link: 'men',
-    title: 'Мужчины',
-    canegories: [
-      { link: 'underpants', title: 'Трусы' },
-      { link: 'socks', title: 'Носки' },
-      { link: 'bathrobes', title: 'Халаты' },
-      { link: 'thermal', title: 'Термобелье' },
-      { link: 'pijamas', title: 'Пижамы' },
-    ],
-  },
-];
-
-export const List = (props) => {
-  return nav.map((val, index) => (
+export const List = ({ list }) => {
+  return list.map((val, index) => (
     <li key={index}>
       <div className={cn(s.categoryTitle, s.categorySubtitle)}>
         <NavLink className={s.link} to={val.link}>
