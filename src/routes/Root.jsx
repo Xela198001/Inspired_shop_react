@@ -27,6 +27,17 @@ const list = [
       { link: 'pijamas', title: 'Пижамы' },
     ],
   },
+  {
+    link: 'kids',
+    title: 'Детское',
+    categories: [
+      { link: 'underpants', title: 'Трусы' },
+      { link: 'socks', title: 'Носки' },
+      { link: 'bathrobes', title: 'Халаты' },
+      { link: 'thermal', title: 'Термобелье' },
+      { link: 'pijamas', title: 'Пижамы' },
+    ],
+  },
 ];
 
 export const Root = () => {
