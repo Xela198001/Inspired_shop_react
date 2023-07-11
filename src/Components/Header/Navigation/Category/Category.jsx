@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export const Category = ({ listCategory }) => {
-  const { activeGender, categories } = useSelector((state) => state.navigation);
+  // const { activeGender, categories } = useSelector((state) => state.navigation);
+  const { categories, activeGender } = useSelector((state) => state.navigation);
 
   return (
     <ul className={s.category}>
