@@ -3,8 +3,7 @@ import s from './Category.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-export const Category = ({ listCategory }) => {
-  // const { activeGender, categories } = useSelector((state) => state.navigation);
+export const Category = () => {
   const { categories, activeGender } = useSelector((state) => state.navigation);
 
   return (
