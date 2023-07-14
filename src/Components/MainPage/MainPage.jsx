@@ -9,11 +9,18 @@ import { Banner } from '../Banner/Banner.jsx';
 export const MainPage = () => {
   const { gender, category } = useParams();
   const dispatch = useDispatch();
-  const { activeGender, categories } = useSelector((state) => state.navigation);
+  const { activeGender, genderList, categories } = useSelector(
+    (state) => state.navigation
+  );
 
   useEffect(() => {
-    dispatch(setActiveGender(gender));
-  }, [gender, dispatch]);
+    if (gender) {
+      dispatch(setActiveGender(gender));
+    } else if (genderList[0]) {
+      dispatch(setActiveGender(genderList[0]));
+      dispatch(fetchGender(genderList[0]));
+    }
+  }, [gender, genderList, dispatch]);
 
   useEffect(() => {
     if (gender && category) {
@@ -24,12 +31,12 @@ export const MainPage = () => {
       dispatch(fetchGender(gender));
     }
   }, [gender, category, dispatch]);
-  console.log(categories);
+
   return (
     <>
-      {categories ? (
+      {!category && categories && (
         <Banner data={categories ? categories[activeGender] : null} />
-      ) : null}
+      )}
       <Goods category={category} />
     </>
   );
