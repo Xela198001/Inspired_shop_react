@@ -10,7 +10,7 @@ export const List = () => {
   return genderList.map((val, index) => (
     <li key={index} className={s.categoryItem}>
       <h3 className={cn(s.categorySubtitle)}>
-        <NavLink className={s.link} to={val}>
+        <NavLink className={s.link} to={`/catalog/${val}`}>
           {categories[val].title}
         </NavLink>
       </h3>
