@@ -7,7 +7,6 @@ export const Count = ({
   handleIncrement,
   handleDecrement,
 }) => {
-  console.log(count);
   return (
     <div className={cn(s.count, className)}>
       <button className={s.item} type="button" onClick={handleDecrement}>

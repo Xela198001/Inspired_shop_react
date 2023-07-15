@@ -9,6 +9,7 @@ import cn from 'classnames';
 import { ColorList } from '../../Components/Colors/ColorList.jsx';
 import { ReactComponent as Like } from '../../assets/img/icons/heart.svg';
 import { Count } from '../../Components/Count/Count.jsx';
+import { ProductSize } from '../../Components/Product/ProductSize/ProductSize.jsx';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ export const ProductPage = () => {
   const { product } = useSelector((state) => state.product);
   const [selectedColor, setSelectedColor] = useState('');
   const [count, setCount] = useState(1);
+  const [selectedSize, setSelectedSize] = useState('');
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
   };
@@ -26,6 +28,9 @@ export const ProductPage = () => {
     if (count > 1) {
       setCount((prevCount) => prevCount - 1);
     }
+  };
+  const handleSizeChange = (e) => {
+    setSelectedSize(e.target.value);
   };
 
   useEffect(() => {
@@ -55,7 +60,11 @@ export const ProductPage = () => {
               handleColorChange={handleColorChange}
             />
           </div>
-          {/* //ProductSize */}
+          <ProductSize
+            listSize={product.size}
+            selectedSize={selectedSize}
+            handleSizeChange={handleSizeChange}
+          />
           <div className={s.description}>
             <p className={cn(s.sublitle, s.description)}>Описание</p>
             <p className={cn(s.decriptionText)}>{product.description}</p>
