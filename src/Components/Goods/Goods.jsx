@@ -9,16 +9,17 @@ export const Goods = ({ category }) => {
     return state.goods;
   });
   const { activeGender, categories } = useSelector((state) => state.navigation);
-
-  const title = category
-    ? categories[activeGender]?.list.find((item) => item.slug === category)
-        .title
-    : 'Новинки';
+  const title =
+    category && categories
+      ? categories[activeGender]?.list?.find((item) => {
+          item.title === category;
+        })?.title
+      : 'Новинки';
 
   return (
     <section className={s.goods}>
       <Container>
-        <h2 className={s.title}>{title}</h2>
+        <h2 className={s.title}>{title ? title : null}</h2>
         <ul className={s.list}>
           {goodsList?.goodsList?.map((item, key) => (
             <li key={key}>

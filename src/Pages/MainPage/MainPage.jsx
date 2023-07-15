@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { fetchCategory, fetchGender } from '../../features/goodsSlice.js';
 import { useParams } from 'react-router-dom';
 import { setActiveGender } from '../../features/navigationSlice.js';
-import { Goods } from '../Goods/Goods.jsx';
-import { Banner } from '../Banner/Banner.jsx';
+import { Goods } from '../../Components/Goods/Goods.jsx';
+import { Banner } from '../../Components/Banner/Banner.jsx';
 
 export const MainPage = () => {
   const { gender, category } = useParams();
