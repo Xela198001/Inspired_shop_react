@@ -10,6 +10,7 @@ import { ColorList } from '../../Components/Colors/ColorList.jsx';
 import { ReactComponent as Like } from '../../assets/img/icons/heart.svg';
 import { Count } from '../../Components/Count/Count.jsx';
 import { ProductSize } from '../../Components/Product/ProductSize/ProductSize.jsx';
+import { Top } from '../../Components/Product/Top/Top.jsx';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,10 @@ export const ProductPage = () => {
   const [selectedColor, setSelectedColor] = useState('');
   const [count, setCount] = useState(1);
   const [selectedSize, setSelectedSize] = useState('');
+  const { activeGender, genderList, categories } = useSelector(
+    (state) => state.navigation
+  );
+
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
   };
@@ -38,57 +43,60 @@ export const ProductPage = () => {
   }, [id, dispatch]);
 
   return (
-    <section className={s.card}>
-      <Container className={s.container}>
-        <img
-          src={`${API_URL}/${product.pic}`}
-          className={s.image}
-          alt={`${product.title} ${product.description}`}
-        />
-        <form className={s.content}>
-          <h2 className={s.title}>{product.title}</h2>
-          <p className={s.price}> руб {product.price}</p>
-          <div className={s.vendorCode}>
-            <span className={s.subTitle}>Артикул</span>
-            <span className={s.id}>{product.id}</span>
-          </div>
-          <div className={s.color}>
-            <p className={cn(s.subtitle, s.colorTitle)}>Цвет</p>
-            <ColorList
-              colors={product.colors}
-              selectedColor={selectedColor}
-              handleColorChange={handleColorChange}
-            />
-          </div>
-          <ProductSize
-            listSize={product.size}
-            selectedSize={selectedSize}
-            handleSizeChange={handleSizeChange}
+    <>
+      <section className={s.card}>
+        <Container className={s.container}>
+          <img
+            src={`${API_URL}/${product.pic}`}
+            className={s.image}
+            alt={`${product.title} ${product.description}`}
           />
-          <div className={s.description}>
-            <p className={cn(s.sublitle, s.description)}>Описание</p>
-            <p className={cn(s.decriptionText)}>{product.description}</p>
-          </div>
-          <div className={s.control}>
-            <Count
-              className={s.count}
-              count={count}
-              handleIncrement={handleIncrement}
-              handleDecrement={handleDecrement}
+          <form className={s.content}>
+            <h2 className={s.title}>{product.title}</h2>
+            <p className={s.price}> руб {product.price}</p>
+            <div className={s.vendorCode}>
+              <span className={s.subTitle}>Артикул</span>
+              <span className={s.id}>{product.id}</span>
+            </div>
+            <div className={s.color}>
+              <p className={cn(s.subtitle, s.colorTitle)}>Цвет</p>
+              <ColorList
+                colors={product.colors}
+                selectedColor={selectedColor}
+                handleColorChange={handleColorChange}
+              />
+            </div>
+            <ProductSize
+              listSize={product.size}
+              selectedSize={selectedSize}
+              handleSizeChange={handleSizeChange}
             />
-            <button className={s.addCart} type="submit">
-              В корзину
-            </button>
-            <button
-              type="button"
-              className={s.favorite}
-              aria-label="Добавить в избранное"
-            >
-              <Like />
-            </button>
-          </div>
-        </form>
-      </Container>
-    </section>
+            <div className={s.description}>
+              <p className={cn(s.sublitle, s.description)}>Описание</p>
+              <p className={cn(s.decriptionText)}>{product.description}</p>
+            </div>
+            <div className={s.control}>
+              <Count
+                className={s.count}
+                count={count}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
+              />
+              <button className={s.addCart} type="submit">
+                В корзину
+              </button>
+              <button
+                type="button"
+                className={s.favorite}
+                aria-label="Добавить в избранное"
+              >
+                <Like />
+              </button>
+            </div>
+          </form>
+        </Container>
+      </section>
+      <Top gender={product.gender} category={product.category} count="4" />
+    </>
   );
 };
