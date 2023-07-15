@@ -5,7 +5,7 @@ import { Product } from '../Product.jsx';
 import { useEffect } from 'react';
 import { fetchCategory, fetchGender } from '../../../features/goodsSlice.js';
 
-export const Top = ({ gender, category, count }) => {
+export const Top = ({ gender, category, count, exclude }) => {
   const dispatch = useDispatch();
   const goodsList = useSelector((state) => {
     return state.goods;
@@ -14,10 +14,10 @@ export const Top = ({ gender, category, count }) => {
 
   useEffect(() => {
     if (gender && category) {
-      dispatch(fetchCategory({ gender, category, count, top }));
+      dispatch(fetchCategory({ gender, category, count, top, exclude }));
       return;
     }
-  }, [gender, category, count, top, dispatch]);
+  }, [gender, category, count, top, exclude, dispatch]);
 
   return (
     <section className={s.goods}>

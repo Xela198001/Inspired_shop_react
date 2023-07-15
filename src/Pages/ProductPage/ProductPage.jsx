@@ -96,7 +96,12 @@ export const ProductPage = () => {
           </form>
         </Container>
       </section>
-      <Top gender={product.gender} category={product.category} count="4" />
+      <Top
+        gender={product.gender}
+        category={product.category}
+        exclude={product.id}
+        count="4"
+      />
     </>
   );
 };
