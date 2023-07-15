@@ -4,18 +4,20 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import { MainPage } from './Components/MainPage/MainPage.jsx';
+import { MainPage } from './Pages/MainPage/MainPage.jsx';
 import { Root } from './routes/Root.jsx';
 import { ErrorPage } from './Components/ErrorPage/ErrorPage.jsx';
 import { useDispatch } from 'react-redux';
 import { fetchNavigation } from './features/navigationSlice.js';
 import { useEffect } from 'react';
 import { fetchColors } from './features/colorsSlice.js';
+import { ProductPage } from './Pages/ProductPage/ProductPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<MainPage />} />
+      <Route path="/product/:id" element={<ProductPage />} />
       <Route path="catalog/:gender/:category?" element={<MainPage />} />
       <Route path="*" element={<ErrorPage />}></Route>
     </Route>
