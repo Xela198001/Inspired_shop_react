@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { CATEGORY_URL, GOODS_URL } from '../const.js';
+import { GOODS_URL } from '../const.js';
 
 export const fetchGender = createAsyncThunk(
   'navigation/fetchGender',

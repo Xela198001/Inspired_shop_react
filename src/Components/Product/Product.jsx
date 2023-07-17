@@ -3,6 +3,7 @@ import { API_URL } from '../../const.js';
 import s from './Product.module.scss';
 import { ReactComponent as Like } from '../../assets/img/icons/heart.svg';
 import { ColorList } from '../Colors/ColorList.jsx';
+import { BtnFavorite } from '../BtnFavorite/BtnFavorite.jsx';
 
 export const Product = ({ id, title, pic, price, colors }) => {
   return (
@@ -13,9 +14,7 @@ export const Product = ({ id, title, pic, price, colors }) => {
       </NavLink>
       <div className={s.row}>
         <p className={s.price}> руб {price}</p>
-        <button className={s.favorite}>
-          <Like />
-        </button>
+        <BtnFavorite id={id} />
       </div>
       <ColorList colors={colors} />
     </article>

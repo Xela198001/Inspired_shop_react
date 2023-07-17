@@ -7,10 +7,10 @@ import { useParams } from 'react-router-dom';
 import { API_URL } from '../../const.js';
 import cn from 'classnames';
 import { ColorList } from '../../Components/Colors/ColorList.jsx';
-import { ReactComponent as Like } from '../../assets/img/icons/heart.svg';
 import { Count } from '../../Components/Count/Count.jsx';
 import { ProductSize } from '../../Components/Product/ProductSize/ProductSize.jsx';
-import { Top } from '../../Components/Product/Top/Top.jsx';
+import { BtnFavorite } from '../../Components/BtnFavorite/BtnFavorite.jsx';
+import { Goods } from '../../Components/Goods/Goods.jsx';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
@@ -85,18 +85,13 @@ export const ProductPage = () => {
               <button className={s.addCart} type="submit">
                 В корзину
               </button>
-              <button
-                type="button"
-                className={s.favorite}
-                aria-label="Добавить в избранное"
-              >
-                <Like />
-              </button>
+              <BtnFavorite id={id} />
             </div>
           </form>
         </Container>
       </section>
-      <Top
+      <Goods
+        title="Вам может понравиться"
         gender={product.gender}
         category={product.category}
         exclude={product.id}
